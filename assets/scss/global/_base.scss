@@ -1,0 +1,126 @@
+@use 'abstracts' as a;
+
+:root {
+  --dark: #{a.$dark};
+  --white: #{a.$white};
+  --accent: #{a.$accent};
+  --grey-dark: #{a.$grey-dark};
+  --grey-light: #{a.$grey-light};
+  --main-font: #{a.$main-font};
+  --transition: #{a.$transition};
+
+  // light theme (default)
+  --bg: var(--white);
+  --text: var(--dark);
+  --text-muted: color-mix(in srgb, var(--dark) 60%, transparent);
+  --text-arrow: color-mix(in srgb, var(--dark) 40%, transparent);
+  --surface: var(--white);          // header bar
+  --surface-muted: var(--grey-light); // header icon buttons
+  --bg-muted: var(--grey-light);    // sections / socials tiles / slider nav buttons
+  --bg-card: var(--white);          // slider card
+  --bg-country: var(--grey-light);  // country tiles
+  --track: #e9e9e9;                 // progressbar track
+  --border: #dedede;
+}
+
+// dark theme
+[data-theme="dark"] {
+  --bg: var(--dark);
+  --text: var(--white);
+  --text-muted: color-mix(in srgb, var(--white) 60%, transparent);
+  --text-arrow: #858583;
+  --surface: var(--dark);
+  --surface-muted: color-mix(in srgb, var(--white) 8%, transparent);
+  --bg-muted: #333;
+  --bg-card: #000;
+  --bg-country: #191919;
+  --track: #333;
+  --border: color-mix(in srgb, var(--white) 18%, transparent);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--dark);
+  background: var(--white);
+  font-family: var(--main-font);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+section {
+  padding: 100px 0;
+
+  h1,
+  h2,
+  h3 {
+    margin-top: 0;
+    line-height: 1.25;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 74px 0;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+h1 {
+  margin-bottom: 24px;
+  font-size: 64px;
+  font-weight: 900;
+
+  @media screen and (max-width: 500px) {
+    font-size: 30px;
+  }
+}
+
+h2 {
+  margin-bottom: 24px;
+  font-size: clamp(30px, 4vw, 64px);
+  font-weight: 900;
+
+  @media screen and (max-width: 500px) {
+    font-size: 30px;
+  }
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: clamp(20px, 80%, 24px);
+}
+
+.site-main {
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}

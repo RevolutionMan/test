@@ -1,0 +1,143 @@
+.countries {
+  background-color: var(--bg-muted);
+
+  &__content {
+    max-width: 540px;
+    width: 100%;
+    margin: 0 auto 40px;
+    color: var(--text);
+    text-align: center;
+
+    p {
+      line-height: 1.5;
+    }
+  }
+
+  &__slider {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--bg-card);
+    border-radius: 20px;
+    box-shadow: 0 0 20px color-mix(in srgb, var(--dark) 10%, transparent);
+
+    --swiper-navigation-size: 18px;
+    --swiper-navigation-color: var(--text);
+
+    @media screen and (max-width: 500px) {
+      padding: 15px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__counter {
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+
+  &__progress.swiper-pagination-progressbar {
+    position: static;
+    flex: 1;
+    height: 4px;
+    border-radius: 4px;
+    background-color: var(--track);
+
+    .swiper-pagination-progressbar-fill {
+      background-color: var(--accent);
+      border-radius: 4px;
+    }
+  }
+
+  &__arrow.swiper-button-prev,
+  &__arrow.swiper-button-next {
+    position: static;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    margin: 0;
+    border-color: transparent;
+    border-radius: 50%;
+    background-color: var(--bg-muted);
+    transition: var(--transition);
+
+    svg {
+      width: 5px;
+      height: 10px;
+    }
+
+    &:hover {
+      background-color: color-mix(in srgb, var(--text) 8%, var(--bg-muted));
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0.4;
+    }
+  }
+
+  @media (max-width: 991px) {
+    &__arrow--prev    { order: 1; }
+    &__counter--start { order: 2; }
+    &__progress       { order: 3; }
+    &__counter--total { order: 4; }
+    &__arrow--next    { order: 5; }
+  }
+}
+
+
+.country {
+  height: 100%;
+  padding: 24px;
+  background-color: var(--bg-country);
+  color: var(--text);
+  border-radius: 20px;
+
+  &__flag {
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 48px;
+    border-radius: 14px;
+    object-fit: cover;
+  }
+
+  &__name {
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &__text {
+    margin: 0;
+    color: var(--text-muted);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  @media screen and (max-width: 500px) {
+    text-align: center;
+
+    &__flag {
+      margin: 0 auto 24px;
+    }
+  }
+}
+
+.countries .swiper {
+  width: 100%;
+  min-width: 0;
+}
+
+.countries .swiper-slide {
+  height: auto;
+}

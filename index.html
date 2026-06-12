@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <title>SOFTSWISS</title>
+    <meta name="description" content="SOFTSWISS Description">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="index.html">
+    <link rel="stylesheet" href="dist/vendor/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="dist/css/app.min.css">
+
+    <script>
+        const saved = localStorage.getItem('theme');
+        const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = saved ?? preferred;
+    </script>
+</head>
+<body>
+
+<!-- SVG sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none" aria-hidden="true">
+    <symbol id="icon-telegram" viewBox="0 0 21 18">
+        <path d="M0.551717 7.92437C0.599943 7.90025 0.648191 7.87734 0.695212 7.85563C1.51264 7.47695 2.34093 7.12238 3.16801 6.76781C3.21262 6.76781 3.28735 6.71594 3.32955 6.69906C3.39344 6.67132 3.45735 6.6448 3.52125 6.61706C3.64423 6.564 3.76721 6.51213 3.88898 6.45907C4.13494 6.35414 4.37967 6.24922 4.62562 6.1443C5.11632 5.93445 5.60702 5.72461 6.09772 5.51356C7.07912 5.09387 8.06175 4.67298 9.04315 4.25329C10.0246 3.8336 11.0071 3.41269 11.9886 2.993C12.97 2.57331 13.9525 2.15242 14.934 1.73273C15.9154 1.31304 16.898 0.892133 17.8794 0.472442C18.0976 0.378373 18.3339 0.238488 18.5678 0.197483C18.7643 0.162509 18.956 0.0949685 19.1537 0.0575823C19.5287 -0.0135722 19.9422 -0.0425211 20.3015 0.113054C20.4257 0.167324 20.5402 0.243302 20.6355 0.338577C21.0912 0.789624 21.0273 1.53011 20.9309 2.16447C20.2593 6.5857 19.5878 11.0081 18.915 15.4294C18.8234 16.036 18.698 16.7017 18.2194 17.0852C17.8143 17.4096 17.2379 17.4458 16.7376 17.3083C16.2373 17.1696 15.796 16.879 15.3632 16.5932C13.568 15.404 11.7715 14.2149 9.97632 13.0258C9.54952 12.7436 9.0745 12.3745 9.07932 11.862C9.08174 11.5532 9.26618 11.2783 9.45427 11.0335C11.0144 8.99772 13.2653 7.59874 14.94 5.65707C15.1763 5.3833 15.362 4.88885 15.0377 4.73086C14.8447 4.63679 14.6229 4.76464 14.4469 4.88644C12.2333 6.4241 10.0209 7.96295 7.80736 9.50061C7.08517 10.0023 6.32802 10.5185 5.45754 10.6415C4.67869 10.7525 3.89502 10.5354 3.14149 10.3135C2.50972 10.1278 1.87915 9.9372 1.251 9.74062C0.917035 9.63691 0.572216 9.52473 0.314207 9.28956C0.0561971 9.05439 -0.0920781 8.65883 0.0634511 8.34526C0.161109 8.14868 0.3504 8.02447 0.549333 7.92316L0.551717 7.92437Z" fill="#00B0F2"/>
+    </symbol>
+    <symbol id="icon-arrow" viewBox="0 0 18 18">
+        <path d="M3.90692 9.74707L12.2844 9.74707L8.62442 13.4071C8.33192 13.6996 8.33192 14.1796 8.62442 14.4721C8.6938 14.5416 8.77622 14.5968 8.86695 14.6344C8.95768 14.672 9.05494 14.6914 9.15317 14.6914C9.25139 14.6914 9.34865 14.672 9.43938 14.6344C9.53011 14.5968 9.61253 14.5416 9.68192 14.4721L14.6244 9.52957C14.6939 9.46019 14.7491 9.37777 14.7867 9.28704C14.8244 9.19631 14.8438 9.09905 14.8438 9.00082C14.8438 8.9026 14.8244 8.80533 14.7867 8.7146C14.7491 8.62387 14.6939 8.54146 14.6244 8.47207L9.68192 3.52957C9.61248 3.46013 9.53005 3.40506 9.43932 3.36748C9.3486 3.3299 9.25136 3.31056 9.15317 3.31056C9.05497 3.31056 8.95773 3.3299 8.86701 3.36748C8.77629 3.40506 8.69385 3.46013 8.62442 3.52957C8.55498 3.59901 8.4999 3.68144 8.46232 3.77216C8.42474 3.86289 8.4054 3.96012 8.4054 4.05832C8.4054 4.15652 8.42474 4.25376 8.46232 4.34448C8.4999 4.4352 8.55498 4.51764 8.62442 4.58707L12.2844 8.24707L3.90692 8.24707C3.49442 8.24707 3.15692 8.58457 3.15692 8.99707C3.15692 9.40957 3.49442 9.74707 3.90692 9.74707Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="icon-slack" viewBox="0 0 24 24">
+        <path d="M5.05928 15.1713C5.05928 16.5662 3.93275 17.6937 2.53892 17.6937C1.14508 17.6937 0.0185547 16.5662 0.0185547 15.1713C0.0185547 13.7763 1.14508 12.6489 2.53892 12.6489H5.05928V15.1713ZM6.31946 15.1713C6.31946 13.7763 7.44598 12.6489 8.83982 12.6489C10.2337 12.6489 11.3602 13.7763 11.3602 15.1713V21.4772C11.3602 22.8722 10.2337 23.9996 8.83982 23.9996C7.44598 23.9996 6.31946 22.8722 6.31946 21.4772V15.1713Z" fill="#E01E5A"/>
+        <path d="M8.84036 5.04474C7.44652 5.04474 6.32 3.91731 6.32 2.52237C6.32 1.12742 7.44652 0 8.84036 0C10.2342 0 11.3607 1.12742 11.3607 2.52237V5.04474H8.84036ZM8.84036 6.32503C10.2342 6.32503 11.3607 7.45245 11.3607 8.8474C11.3607 10.2423 10.2342 11.3698 8.84036 11.3698H2.52036C1.12653 11.3698 0 10.2423 0 8.8474C0 7.45245 1.12653 6.32503 2.52036 6.32503H8.84036Z" fill="#36C5F0"/>
+        <path d="M18.9402 8.8474C18.9402 7.45245 20.0667 6.32503 21.4605 6.32503C22.8544 6.32503 23.9809 7.45245 23.9809 8.8474C23.9809 10.2423 22.8544 11.3698 21.4605 11.3698H18.9402V8.8474ZM17.68 8.8474C17.68 10.2423 16.5535 11.3698 15.1596 11.3698C13.7658 11.3698 12.6393 10.2423 12.6393 8.8474V2.52237C12.6393 1.12742 13.7658 0 15.1596 0C16.5535 0 17.68 1.12742 17.68 2.52237V8.8474Z" fill="#2EB67D"/>
+        <path d="M15.1596 18.9548C16.5535 18.9548 17.68 20.0823 17.68 21.4772C17.68 22.8722 16.5535 23.9996 15.1596 23.9996C13.7658 23.9996 12.6393 22.8722 12.6393 21.4772V18.9548H15.1596ZM15.1596 17.6937C13.7658 17.6937 12.6393 16.5662 12.6393 15.1713C12.6393 13.7763 13.7658 12.6489 15.1596 12.6489H21.4796C22.8735 12.6489 24 13.7763 24 15.1713C24 16.5662 22.8735 17.6937 21.4796 17.6937H15.1596Z" fill="#ECB22E"/>
+    </symbol>
+</svg>
+
+<header class="site-header">
+    <div class="site-header__container">
+        <a class="site-logo" href="index.html">
+            <img class="site-logo__img site-logo__img--light" src="dist/img/logo-softswiss-black.svg" width="150" height="30" fetchpriority="high" alt="Logo softswiss">
+            <img class="site-logo__img site-logo__img--dark" src="dist/img/logo-softswiss-white.svg" width="150" height="30" alt="Logo softswiss dark">
+        </a>
+
+        <nav class="site-nav" id="site-nav">
+            <a href="#">Menu item</a>
+            <a href="#">Menu item</a>
+            <a href="#">Menu item</a>
+            <a href="#">Menu item</a>
+            <a href="#">Menu item</a>
+        </nav>
+
+        <button type="button" class="btn-icon theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <circle cx="10" cy="10" r="7.5" transform="rotate(-180 10 10)" stroke="currentColor" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 2.5C10.9849 2.5 11.9602 2.694 12.8701 3.07091C13.7801 3.44782 14.6069 4.00026 15.3033 4.6967C15.9997 5.39314 16.5522 6.21994 16.9291 7.12988C17.306 8.03982 17.5 9.01509 17.5 10C17.5 10.9849 17.306 11.9602 16.9291 12.8701C16.5522 13.7801 15.9997 14.6069 15.3033 15.3033C14.6069 15.9997 13.7801 16.5522 12.8701 16.9291C11.9602 17.306 10.9849 17.5 10 17.5L10 10L10 2.5Z" fill="currentColor"/>
+            </svg>
+        </button>
+
+        <a href="#" class="button">
+            <span>Contact Us</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1.6665" y="3.33203" width="16.6667" height="13.3333" rx="3.33333" stroke="white" stroke-width="1.33333"/>
+                <path d="M5 7.49805L9 10.498C9.59259 10.9425 10.4074 10.9425 11 10.498L15 7.49805" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+
+        <button type="button" class="btn-icon hamburger-btn" id="hamburger-btn" aria-label="Toggle menu" aria-controls="site-nav" aria-expanded="false">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <rect x="2" y="3.6001" width="16" height="1.6" rx="0.8" fill="currentColor"/>
+                <rect x="2" y="9.2002" width="16" height="1.6" rx="0.8" fill="currentColor"/>
+                <rect x="2" y="14.8003" width="16" height="1.6" rx="0.8" fill="currentColor"/>
+            </svg>
+            <span>menu</span>
+        </button>
+    </div>
+</header>
+
+<div class="menu-overlay" id="menu-overlay"></div>
+
+<main class="site-main">
+    <section class="hero">
+        <img class="hero__img hero__img--left" src="dist/img/hero-icon-softwiss.png" width="400" height="422" alt="" fetchpriority="high" aria-hidden="true" data-parallax="-0.3">
+
+        <div class="hero__content">
+            <h1 class="hero__title">Heading h1</h1>
+            <p class="hero__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took</p>
+        </div>
+
+        <img class="hero__img hero__img--right" src="dist/img/hero-icon-mail.png" width="400" height="422" fetchpriority="high" alt="" aria-hidden="true" data-parallax="0.3">
+    </section>
+
+    <section class="socials">
+        <div class="container">
+            <div class="socials__grid">
+                <div class="socials-item socials-item--tall">
+                    <div class="socials-item__top">
+                        <div class="socials-item__type">
+                            <svg width="21" height="18" aria-hidden="true" focusable="false">
+                                <use href="#icon-telegram"></use>
+                            </svg>
+                        </div>
+                        <div class="socials-item__tag"></div>
+                    </div>
+
+                    <div class="socials-item__bottom">
+                        <a class="socials-item__name" href="#">
+                            <span>Telegram Channel</span>
+                            <svg width="18" height="18" aria-hidden="true" focusable="false">
+                                <use href="#icon-arrow"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="socials-item socials-item--wide">
+                    <div class="socials-item__top">
+                        <div class="socials-item__type">
+                            <svg width="21" height="18" aria-hidden="true" focusable="false">
+                                <use href="#icon-telegram"></use>
+                            </svg>
+                        </div>
+                        <div class="socials-item__tag">name tag</div>
+                    </div>
+
+                    <div class="socials-item__bottom">
+                        <a class="socials-item__name" href="#">
+                            <span>User Name</span>
+                            <svg width="18" height="18" aria-hidden="true" focusable="false">
+                                <use href="#icon-arrow"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="socials-item">
+                    <div class="socials-item__top">
+                        <div class="socials-item__type">
+                            <svg width="21" height="18" aria-hidden="true" focusable="false">
+                                <use href="#icon-telegram"></use>
+                            </svg>
+                        </div>
+                        <div class="socials-item__tag">name tag</div>
+                    </div>
+
+                    <div class="socials-item__bottom">
+                        <a class="socials-item__name" href="#">
+                            <span>User Name</span>
+                            <svg width="18" height="18" aria-hidden="true" focusable="false">
+                                <use href="#icon-arrow"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="socials-item">
+                    <div class="socials-item__top">
+                        <div class="socials-item__type">
+                            <svg width="21" height="18" aria-hidden="true" focusable="false">
+                                <use href="#icon-telegram"></use>
+                            </svg>
+                        </div>
+                        <div class="socials-item__tag">name tag</div>
+                    </div>
+
+                    <div class="socials-item__bottom">
+                        <a class="socials-item__name" href="#">
+                            <span>User Name</span>
+                            <svg width="18" height="18" aria-hidden="true" focusable="false">
+                                <use href="#icon-arrow"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="socials-item socials-item--tall">
+                    <div class="socials-item__top">
+                        <div class="socials-item__type">
+                            <svg width="24" height="24" aria-hidden="true" focusable="false">
+                                <use href="#icon-slack"></use>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="socials-item__bottom">
+                        <a class="socials-item__name" href="#">
+                            <span>Slack Channel</span>
+                            <svg width="18" height="18" aria-hidden="true" focusable="false">
+                                <use href="#icon-arrow"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="socials-item">
+                    <div class="socials-item__top">
+                        <div class="socials-item__type">
+                            <svg width="21" height="18" aria-hidden="true" focusable="false">
+                                <use href="#icon-telegram"></use>
+                            </svg>
+                        </div>
+                        <div class="socials-item__tag">name tag</div>
+                    </div>
+
+                    <div class="socials-item__bottom">
+                        <a class="socials-item__name" href="#">
+                            <span>User Name</span>
+                            <svg width="18" height="18" aria-hidden="true" focusable="false">
+                                <use href="#icon-arrow"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="socials-item socials-item--tall">
+                    <div class="socials-item__top">
+                        <div class="socials-item__type">
+                            <svg width="21" height="18" aria-hidden="true" focusable="false">
+                                <use href="#icon-telegram"></use>
+                            </svg>
+                        </div>
+                        <div class="socials-item__tag">name tag</div>
+                    </div>
+
+                    <div class="socials-item__bottom">
+                        <a class="socials-item__name" href="#">
+                            <span>User Name</span>
+                            <svg width="18" height="18" aria-hidden="true" focusable="false">
+                                <use href="#icon-arrow"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="socials-item">
+                    <div class="socials-item__top">
+                        <div class="socials-item__type">
+                            <svg width="21" height="18" aria-hidden="true" focusable="false">
+                                <use href="#icon-telegram"></use>
+                            </svg>
+                        </div>
+                        <div class="socials-item__tag">name tag</div>
+                    </div>
+
+                    <div class="socials-item__bottom">
+                        <a class="socials-item__name" href="#">
+                            <span>User Name</span>
+                            <svg width="18" height="18" aria-hidden="true" focusable="false">
+                                <use href="#icon-arrow"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="countries">
+        <div class="container">
+            <div class="countries__content">
+                <h2>Heading h2</h2>
+                <p>Our platform is compliant with many popular iGaming jurisdictions and regulators. We can also integrate with national</p>
+            </div>
+
+            <div class="countries__slider">
+                <div class="countries__nav">
+                    <div class="countries__counter countries__counter--start"></div>
+                    <div class="countries__progress swiper-pagination"></div>
+                    <div class="countries__counter countries__counter--total"></div>
+                    <button type="button" class="countries__arrow countries__arrow--prev swiper-button-prev" aria-label="Previous slide"></button>
+                    <button type="button" class="countries__arrow countries__arrow--next swiper-button-next" aria-label="Next slide"></button>
+                </div>
+
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide country">
+                            <img src="dist/img/flags/brazil.svg" width="80" height="80" loading="lazy" decoding="async" alt="Brazil" class="country__flag">
+                            <div class="country__name">Brazil</div>
+                            <p class="country__text">Technology partners lorem Ipsum is simply dummy text of the</p>
+                        </div>
+                        <div class="swiper-slide country">
+                            <img src="dist/img/flags/greece.svg" width="80" height="80" loading="lazy" decoding="async" alt="Greece" class="country__flag">
+                            <div class="country__name">Greece</div>
+                            <p class="country__text">Technology partners lorem Ipsum is simply dummy text of the</p>
+                        </div>
+                        <div class="swiper-slide country">
+                            <img src="dist/img/flags/mexico.svg" width="80" height="80" loading="lazy" decoding="async" alt="Mexico" class="country__flag">
+                            <div class="country__name">Mexico</div>
+                            <p class="country__text">Technology partners lorem Ipsum is simply dummy text of the</p>
+                        </div>
+                        <div class="swiper-slide country">
+                            <img src="dist/img/flags/peru.svg" width="80" height="80" loading="lazy" decoding="async" alt="Peru" class="country__flag">
+                            <div class="country__name">Peru</div>
+                            <p class="country__text">Technology partners lorem Ipsum is simply dummy text of the</p>
+                        </div>
+                        <div class="swiper-slide country">
+                            <img src="dist/img/flags/romania.svg" width="80" height="80" loading="lazy" decoding="async" alt="Romania" class="country__flag">
+                            <div class="country__name">Romania</div>
+                            <p class="country__text">Technology partners lorem Ipsum is simply dummy text of the</p>
+                        </div>
+                        <div class="swiper-slide country">
+                            <img src="dist/img/flags/serbia.svg" width="80" height="80" loading="lazy" decoding="async" alt="Serbia" class="country__flag">
+                            <div class="country__name">Serbia</div>
+                            <p class="country__text">Technology partners lorem Ipsum is simply dummy text of the</p>
+                        </div>
+                        <div class="swiper-slide country">
+                            <img src="dist/img/flags/spain.svg" width="80" height="80" loading="lazy" decoding="async" alt="Spain" class="country__flag">
+                            <div class="country__name">Spain</div>
+                            <p class="country__text">Technology partners lorem Ipsum is simply dummy text of the</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="site-footer__wrapper">
+            <button class="button-up" aria-label="Up">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <path d="M10.83 15.6589L10.83 6.35054L14.8967 10.4172C15.2217 10.7422 15.755 10.7422 16.08 10.4172C16.1573 10.3401 16.2186 10.2485 16.2604 10.1477C16.3022 10.0469 16.3237 9.93885 16.3237 9.82971C16.3237 9.72057 16.3022 9.6125 16.2604 9.51169C16.2186 9.41088 16.1573 9.3193 16.08 9.24221L10.5884 3.75054C10.5113 3.67329 10.4197 3.612 10.3189 3.57018C10.2181 3.52836 10.11 3.50684 10.0009 3.50684C9.89172 3.50684 9.78365 3.52836 9.68284 3.57018C9.58203 3.612 9.49046 3.67329 9.41336 3.75054L3.92169 9.24221C3.84454 9.31936 3.78334 9.41095 3.74159 9.51175C3.69983 9.61256 3.67834 9.7206 3.67834 9.82971C3.67834 9.93882 3.69983 10.0469 3.74159 10.1477C3.78334 10.2485 3.84454 10.3401 3.92169 10.4172C3.99884 10.4944 4.09044 10.5556 4.19124 10.5973C4.29205 10.6391 4.40009 10.6606 4.50919 10.6606C4.6183 10.6606 4.72634 10.6391 4.82715 10.5973C4.92795 10.5556 5.01954 10.4944 5.09669 10.4172L9.16336 6.35054L9.16336 15.6589C9.16336 16.1172 9.53836 16.4922 9.99669 16.4922C10.455 16.4922 10.83 16.1172 10.83 15.6589Z" fill="currentColor"/>
+                </svg>
+            </button>
+
+            <a href="mailto:test@softswiss.com" class="site-footer__email">test@softswiss.com</a>
+
+            <div class="site-footer__copyright">© 2008-2025 SOFTSWISS</div>
+        </div>
+    </div>
+</footer>
+
+<script src="dist/vendor/js/swiper-bundle.min.js"></script>
+<script src="dist/js/app.min.js"></script>
+</body>
+</html>
